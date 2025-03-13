@@ -1,0 +1,6 @@
+<div *ngIf="showLoading">
+  <div class="loading-container d-flex justify-content-center align-items-center"
+    [ngClass]="{'loading-overlay' : showLoading}">
+    <p-progressSpinner ariaLabel="loading" />
+  </div>
+</div>

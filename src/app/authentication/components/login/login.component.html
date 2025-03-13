@@ -1,0 +1,28 @@
+<div class="container-login">
+  <p-card>
+    <form [formGroup]="frmControls!" autocomplete="off">
+      <p-fluid>
+        <div class="row mt-5">
+          <control-validator>
+            <p-floatLabel>
+              <input type="text" autocomplete="username" formControlName="user" id="user"  pSize="large" pInputText>
+              <label for="user">Usuario</label>
+            </p-floatLabel>
+          </control-validator>
+        </div>
+        <div class="row mt-5">
+          <control-validator>
+            <p-floatLabel>
+              <input type="password" autocomplete="new-password" formControlName="password" id="password"  pSize="large" pInputText >
+              <label for="password">Contraseña</label>
+            </p-floatLabel>
+          </control-validator>
+        </div>
+      </p-fluid>
+      <div class="mt-5 text-center">
+        <button pButton label="Ingresar" icon="pi pi-sign-in" severity="secondary" size="large" (click)="onSendLogin()"></button>
+      </div>
+    </form>
+  </p-card>
+</div>
+

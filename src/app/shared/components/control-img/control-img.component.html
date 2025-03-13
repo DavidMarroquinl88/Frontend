@@ -1,0 +1,33 @@
+<div class="row">
+
+  <input accept="image/*" (change)="onUploadFile($event)" type="file" class="customUploadImg" #customUploadImg />
+
+  <button [disabled]="disabled" pButton label="Selecionar Imágen" (click)="customUploadImg.click()" severity="secondary"></button>
+
+  <div class="row mt-3">
+    <!-- <div *ngIf="loading == false; else contentLoading ">
+      <ng-container *ngTemplateOutlet="contentImg"> </ng-container>
+    </div> -->
+    <ng-container *ngTemplateOutlet="contentImg"></ng-container>
+  </div>
+
+  <div *ngIf="imgControl?.invalid && imgControl?.touched">
+    <p>Dato requerido, seleccionar imágen</p>
+  </div>
+
+</div>
+
+
+<ng-template #contentImg>
+  <div *ngIf="safeUrlImgMedium" class="container-img">
+    <img [src]="safeUrlImgMedium" (load)="onLoad()" class="img-upload" />
+    <button [disabled]="disabled" icon="pi pi-times" pButton (click)="onRemoveImg()"></button>
+  </div>
+</ng-template>
+
+
+<ng-template #contentLoading>
+  <div class="text-center">
+    <p-skeleton width="100%" height="150px"></p-skeleton>
+  </div>
+</ng-template>

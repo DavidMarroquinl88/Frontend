@@ -1,0 +1,86 @@
+<div class="text-center">
+  <h2>INVENTARIO</h2>
+</div>
+
+<p-card>
+  <div class="text-end mb-5">
+    <button (click)="onShowAddItem()" pButton label="Agregar Producto a Tienda"></button>
+  </div>
+  <p-table [value]="items">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Código Artículo</th>
+        <th>Nombre Artículo</th>
+        <th>Nombre Tienda</th>
+        <th>Nombre Sucursal</th>
+        <th>Stock</th>
+        <th style="width: 10rem;">Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-element>
+      <tr>
+        <td>{{element.id}}</td>
+        <td>{{element.articleCode}}</td>
+        <td>{{element.articleName}}</td>
+        <td>{{element.storeName}}</td>
+        <td>{{element.branchName}}</td>
+        <td>{{element.stock}}</td>
+        <td>
+          <button pTooltip="Editar" tooltipPosition="top" (click)="onShowEditItem(element)" icon="pi pi-pencil"
+            class="mb-2 me-2" pButton></button>
+          <button pTooltip="Eliminar" tooltipPosition="top" (click)="onDeleteItem(element)" icon="pi pi-trash"
+            class="mb-2" pButton></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
+
+<p-dialog [header]="titleModal" [modal]="true" [(visible)]="showModal" [style]="{ width: '50vw' }"
+  [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }">
+  <p-card *ngIf="showModal">
+    <div *ngTemplateOutlet="formControls"> </div>
+  </p-card>
+</p-dialog>
+
+
+
+<ng-template #formControls>
+  <form [formGroup]="frmControls!" autocomplete="off">
+    <p-fluid>
+      <div class="row mt-5">
+        <control-validator>
+          <p-floatLabel>
+            <p-dropdown resetFilterOnHide=true filter="true" appendTo="body" formControlName="article" id="article"
+              name="article" [options]="elementsArticles" optionLabel="name" [showClear]="true">
+            </p-dropdown>
+            <label for="article">Artículo</label>
+          </p-floatLabel>
+        </control-validator>
+      </div>
+      <div class="row mt-5">
+        <control-validator>
+          <p-floatLabel>
+            <p-dropdown resetFilterOnHide=true filter="true" appendTo="body" formControlName="store" id="store"
+              name="store" [options]="elementsStores" optionLabel="name" [showClear]="true">
+            </p-dropdown>
+            <label for="store">Tienda</label>
+          </p-floatLabel>
+        </control-validator>
+      </div>
+      <div class="row mt-5">
+        <control-validator>
+          <p-floatLabel>
+            <p-inputnumber formControlName="stock" id="stock" pSize="large" mode="decimal" inputId="withoutgrouping" [useGrouping]="false"></p-inputnumber>
+            <label for="stock">Stock</label>
+          </p-floatLabel>
+        </control-validator>
+      </div>
+    </p-fluid>
+    <div class="mt-5 button-end">
+      <button pButton label="Limpiar" (click)="onClear()" icon="pi pi-filter-slash" s size="large"></button>
+      <button pButton label="Guardar" (click)="onSave()" icon="pi pi-save" size="large"></button>
+    </div>
+  </form>
+</ng-template>

@@ -1,0 +1,27 @@
+.customUploadImg{
+  display: none;
+}
+
+p{
+  color : #A52A2A
+}
+
+.img-upload{
+  width: 90%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.container-down{
+  width: 100%;
+  height: 150px;
+}
+
+.container-img{
+  width: 100%;
+  height: 150px;
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}

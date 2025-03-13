@@ -1,0 +1,12 @@
+export enum TipoMensaje {
+  ERROR = 0,
+  WARNING = 1,
+  SUCCESS = 2,
+  CONFIRM = 3,
+  ACEPTAR = 4,
+  INFO = 5,
+  ERRORREACTIVO = 6,
+  SUCCESSREACTIVO = 7,
+  WARNINGREACTIVO = 8,
+  INFOREACTIVO = 9
+}

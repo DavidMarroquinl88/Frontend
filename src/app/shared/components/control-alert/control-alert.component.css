@@ -1,0 +1,38 @@
+.confirm {
+  z-index: 9999 !important;
+}
+
+.content{
+  display : flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media(max-width:300px){
+
+  .action-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+  }
+
+  button{
+    width: 100%;
+  }
+
+}
+
+@media(min-width:300px){
+
+  .action-buttons{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 1rem;
+  }
+
+}
+

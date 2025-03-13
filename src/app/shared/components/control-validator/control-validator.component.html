@@ -1,0 +1,5 @@
+<div class="form-group" [ngClass]="{ 'has-error': errorMessage !== null, 'control-valid': errorMessage === null }">
+  <ng-content></ng-content>
+  <span style="color: brown;" *ngIf="errorMessage !== null" class="help-block">{{ errorMessage }}</span>
+</div>
+

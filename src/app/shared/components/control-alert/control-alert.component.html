@@ -1,0 +1,38 @@
+<p-dialog [(visible)]="display" showEffect="fade" dismissableMask="true" closeOnEscape="false" closable="false"
+  [modal]="true" [style]="{ width: '30vw' }" [breakpoints]="{ '1199px': '50vw', '575px': '90vw' }">
+
+  <ng-template pTemplate="headless">
+    <p-card>
+
+      <div class="row text-center">
+        <h2>{{titulo}}</h2>
+      </div>
+
+      <div class="text-center mt-3">
+        <div class="row">
+          <i class="pi pi-exclamation-triangle" style="font-size: 2.5rem; color:yellow"></i>
+        </div>
+        <h3>
+          {{mensaje}}
+        </h3>
+      </div>
+
+      <p-card class="mb-5">
+        <div class="text-end action-buttons">
+          <button class="mt-3" severity="secondary" type="button" pButton (click)="cancelar()" label="Cancelar"></button>
+          <button class="mt-3" severity="danger" type="button" pButton (click)="confirmar()" label="Aceptar"></button>
+        </div>
+      </p-card>
+
+    </p-card>
+
+  </ng-template>
+</p-dialog>
+
+<div class="p-fluid">
+  <div class="row">
+    <div class="col-12">
+      <p-toast class="confirm" [breakpoints]="{ '920px': { width: '100%', right: '0', left: '0' } }" [style]="{marginTop: '15%' }" sticky="true" key="myGrowl"></p-toast>
+    </div>
+  </div>
+</div>
