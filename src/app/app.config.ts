@@ -23,9 +23,7 @@ export const appConfig: ApplicationConfig = {
       provide: Sanitizer,
       useClass: NgDompurifySanitizer,
     },
-    //{ provide: API_BASE_URL, useValue: "https://cibrwebapi.azurewebsites.net", multi: true }, //prod
-    //{ provide: API_BASE_URL, useValue: "https://testcibrwebapi.azurewebsites.net", multi: true }, //test
-    { provide: API_BASE_URL, useValue: "https://localhost:7081", multi: true }, //local
+    { provide: API_BASE_URL, useValue: "https://testcibrwebapi.azurewebsites.net", multi: true }, //test
     provideHttpClient(
       withInterceptorsFromDi()
     ),
